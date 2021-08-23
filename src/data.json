@@ -1,0 +1,35 @@
+{
+  "nextId": 7,
+  "todos": [
+    {
+      "id": 1,
+      "todo": "Complete online Javascript course",
+      "state": "Completed"
+    },
+    {
+      "id": 2,
+      "todo": "Job around the park 3x",
+      "state": "Active"
+    },
+    {
+      "id": 3,
+      "todo": "10 minutes meditation",
+      "state": "Active"
+    },
+    {
+      "id": 4,
+      "todo": "Read for 1 hour",
+      "state": "Active"
+    },
+    {
+      "id": 5,
+      "todo": "Pick up groceries",
+      "state": "Active"
+    },
+    {
+      "id": 6,
+      "todo": "Complete Todo App on Frontend Mentor",
+      "state": "Active"
+    }
+  ]
+}
