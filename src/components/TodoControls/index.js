@@ -11,6 +11,7 @@ const ControlsContainer = styled.div`
   height: ${rem(50)};
   padding: ${rem(18)} ${rem(24)};
   color: ${({ theme }) => theme.textState};
+  position: relative;
 `;
 const LeftItems = styled.div``;
 
@@ -26,7 +27,7 @@ const TodoControls = ({ activeItems, handleFilter, handleClear, filter }) => {
     <ControlsContainer>
       <LeftItems>{activeItems} items left</LeftItems>
       <TodoFilter handleFilter={handleFilter} filter={filter} />
-      <TodoClear handleClear={handleClear}>Clear Completed</TodoClear>
+      <TodoClear onClick={handleClear}>Clear Completed</TodoClear>
     </ControlsContainer>
   );
 };

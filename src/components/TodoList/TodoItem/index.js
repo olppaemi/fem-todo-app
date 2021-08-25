@@ -40,7 +40,7 @@ const Item = styled.div`
   }
 `;
 const Todo = styled.p`
-  font-size: ${rem(18)};
+  font-size: clamp(${rem(16)}, 2vw, ${rem(20)});
   color: ${({ completed, theme }) =>
     completed ? theme.textCompleted : theme.textActive};
   text-decoration: ${({ completed }) => completed && "line-through"};

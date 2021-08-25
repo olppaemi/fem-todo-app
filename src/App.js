@@ -28,24 +28,26 @@ const App = () => {
 
   const { checked, setChecked, theme } = useMode();
 
-  const handleFilter = (e) => {
+  const handleFilter = useCallback((e) => {
     setFilter(e.target.value);
-  };
+  }, []);
 
-  const handleClick = (id) => {
-    setTodos(
-      todos.filter((todo) =>
-        todo.id === id
-          ? todo.state === "Active"
-            ? (todo.state = "Completed")
-            : (todo.state = "Active")
-          : todo
-      )
-    );
-  };
+  const handleClick = useCallback(
+    (id) => {
+      setTodos(
+        todos.filter((todo) =>
+          todo.id === id
+            ? todo.state === "Active"
+              ? (todo.state = "Completed")
+              : (todo.state = "Active")
+            : todo
+        )
+      );
+    },
+    [todos]
+  );
 
   const handleAdd = useCallback((title) => {
-    console.log(nextId.current);
     const newTodo = {
       id: nextId.current,
       title,
@@ -58,6 +60,11 @@ const App = () => {
   const handleRemove = useCallback((id) => {
     setTodos((todos) => todos.filter((todo) => todo.id !== id));
   }, []);
+
+  const handleClear = useCallback(
+    () => setTodos((todos) => todos.filter((todo) => todo.state === "Active")),
+    []
+  );
 
   return (
     <ThemeProvider theme={theme}>
@@ -74,6 +81,7 @@ const App = () => {
           <TodoControls
             activeItems={activeItems}
             handleFilter={handleFilter}
+            handleClear={handleClear}
             filter={filter}
           />
         </TodosContainer>

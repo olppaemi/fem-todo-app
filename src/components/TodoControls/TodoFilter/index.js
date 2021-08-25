@@ -1,8 +1,21 @@
 import React from "react";
+import rem from "services/rem";
 import styled from "styled-components";
 import { Button } from "../Button/index";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  @media only screen and (max-width: ${rem(624)}) {
+    position: absolute;
+    top: 150%;
+    left: 0;
+    right: 0;
+    height: ${rem(48)};
+    background: ${({ theme }) => theme.listBg};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 const FilterBtn = styled(Button)`
   font-weight: 700;
   color: ${({ active, theme }) => active && theme.textCurrentState};
