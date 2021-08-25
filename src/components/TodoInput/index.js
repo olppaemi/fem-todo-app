@@ -45,23 +45,23 @@ const TodoInputContainer = styled.div`
 
 const TodoInput = ({ handleAdd }) => {
   const [text, setText] = useState("");
-  const handleInput = (e) => {
-    if (e.key === "Enter") {
-      console.log("enter");
-      handleAdd(text);
-      setText("");
-    }
+
+  const handleSubmit = (e) => {
+    handleAdd(text);
+    setText("");
+    e.preventDefault();
   };
 
   return (
     <TodoInputContainer>
-      <input
-        type="text"
-        placeholder="Create a new todo..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        onKeyDown={handleInput}
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Create a new todo..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+      </form>
     </TodoInputContainer>
   );
 };

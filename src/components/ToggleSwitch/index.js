@@ -4,7 +4,7 @@ import rem from "services/rem";
 import sun from "assets/icon-sun.svg";
 import moon from "assets/icon-moon.svg";
 
-const Label = styled.label`
+const Toggle = styled.span`
   position: relative;
 
   &:before {
@@ -19,23 +19,9 @@ const Label = styled.label`
       no-repeat;
   }
 `;
-const Switch = styled.input.attrs({
-  type: "checkbox",
-})`
-  opacity: 0;
-  width: 0;
-  height: 0;
-`;
 
 const ToggleSwitch = ({ checked, setChecked }) => {
-  return (
-    <Label checked={checked}>
-      <Switch
-        checked={checked}
-        onClick={() => setChecked((checked) => !checked)}
-      />
-    </Label>
-  );
+  return <Toggle checked={checked} onClick={() => setChecked(!checked)} />;
 };
 
 export default ToggleSwitch;

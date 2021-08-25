@@ -12,16 +12,24 @@ const FilterBtn = styled(Button)`
   }
 `;
 
-const TodoFilter = ({ handleAll, handleActive, handleCompleted, filter }) => {
+const TodoFilter = ({ handleFilter, filter }) => {
   return (
     <Wrapper>
-      <FilterBtn onClick={handleAll} active={filter === "All"}>
+      <FilterBtn value="All" onClick={handleFilter} active={filter === "All"}>
         All
       </FilterBtn>
-      <FilterBtn onClick={handleActive} active={filter === "Active"}>
+      <FilterBtn
+        value="Active"
+        onClick={handleFilter}
+        active={filter === "Active"}
+      >
         Active
       </FilterBtn>
-      <FilterBtn onClick={handleCompleted} active={filter === "Completed"}>
+      <FilterBtn
+        value="Completed"
+        onClick={handleFilter}
+        active={filter === "Completed"}
+      >
         Completed
       </FilterBtn>
     </Wrapper>

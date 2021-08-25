@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import rem from "services/rem";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "globalStyles";
-import { todos as data, nextId } from "data.json";
+import { todos as data, id } from "data.json";
 import Title from "components/Title";
 import TodoInput from "components/TodoInput";
 import TodoList from "components/TodoList";
@@ -21,16 +21,16 @@ const TodosContainer = styled.div`
 const App = () => {
   const [todos, setTodos] = useState(data);
   const [filter, setFilter] = useState("All");
-  let id = nextId;
+  const nextId = useRef(id);
   const activeItems = todos?.filter((todo) => todo.state === "Active").length;
   const filteredTodos =
     filter !== "All" ? todos?.filter((todo) => todo.state === filter) : todos;
 
   const { checked, setChecked, theme } = useMode();
 
-  const handleAll = () => setFilter("All");
-  const handleActive = () => setFilter("Active");
-  const handleCompleted = () => setFilter("Completed");
+  const handleFilter = (e) => {
+    setFilter(e.target.value);
+  };
 
   const handleClick = (id) => {
     setTodos(
@@ -44,19 +44,20 @@ const App = () => {
     );
   };
 
-  const handleAdd = (todo) => {
+  const handleAdd = useCallback((title) => {
+    console.log(nextId.current);
     const newTodo = {
-      id: id++,
-      todo: todo,
+      id: nextId.current,
+      title,
       state: "Active",
     };
-    console.log(todos);
-    setTodos([...todos, newTodo]);
-  };
+    nextId.current += 1;
+    setTodos((todos) => todos.concat(newTodo));
+  }, []);
 
-  const handleRemove = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
+  const handleRemove = useCallback((id) => {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -72,9 +73,7 @@ const App = () => {
           />
           <TodoControls
             activeItems={activeItems}
-            handleAll={handleAll}
-            handleActive={handleActive}
-            handleCompleted={handleCompleted}
+            handleFilter={handleFilter}
             filter={filter}
           />
         </TodosContainer>

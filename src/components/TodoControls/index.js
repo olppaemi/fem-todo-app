@@ -21,23 +21,11 @@ const TodoClear = styled(Button)`
   }
 `;
 
-const TodoControls = ({
-  activeItems,
-  handleAll,
-  handleActive,
-  handleCompleted,
-  handleClear,
-  filter,
-}) => {
+const TodoControls = ({ activeItems, handleFilter, handleClear, filter }) => {
   return (
     <ControlsContainer>
       <LeftItems>{activeItems} items left</LeftItems>
-      <TodoFilter
-        handleAll={handleAll}
-        handleActive={handleActive}
-        handleCompleted={handleCompleted}
-        filter={filter}
-      />
+      <TodoFilter handleFilter={handleFilter} filter={filter} />
       <TodoClear handleClear={handleClear}>Clear Completed</TodoClear>
     </ControlsContainer>
   );

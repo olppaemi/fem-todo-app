@@ -9,10 +9,10 @@ const TodoListContainer = styled.div`
 const TodoList = ({ todos, handleClick, handleRemove }) => {
   return (
     <TodoListContainer>
-      {todos.map((item) => (
+      {todos.map((todo) => (
         <TodoItem
-          key={item.id}
-          {...item}
+          key={todo.id}
+          todo={todo}
           handleClick={handleClick}
           handleRemove={handleRemove}
         />
