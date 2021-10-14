@@ -1,19 +1,15 @@
+import { useModeContext } from "context/ModeContext";
 import MoonIcon from "icons/MoonIcon";
 import SunIcon from "icons/SunIcon";
-import { MouseEventHandler } from "react";
 import * as S from "./styles";
 
-const Header = ({
-  mode,
-  onClick,
-}: {
-  mode: "light" | "dark";
-  onClick: MouseEventHandler<HTMLButtonElement>;
-}) => {
+const Header = () => {
+  const { mode, toggleMode } = useModeContext();
+
   return (
     <S.Header>
       <S.Title>TODO</S.Title>
-      <S.ToggleButton onClick={onClick}>
+      <S.ToggleButton onClick={toggleMode}>
         {mode === "light" ? <SunIcon /> : <MoonIcon />}
       </S.ToggleButton>
     </S.Header>

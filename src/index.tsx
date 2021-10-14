@@ -1,10 +1,13 @@
+import { ModeProvider } from "context/ModeContext";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ModeProvider>
+      <App />
+    </ModeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

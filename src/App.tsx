@@ -1,15 +1,15 @@
-import useMode from "hooks/useMode";
+import { useModeContext } from "context/ModeContext";
 import Front from "pages/Front";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "styles/globalStyles";
 
 const App = () => {
-  const { theme, mode, toggleMode } = useMode();
+  const { theme } = useModeContext();
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Front toggleMode={toggleMode} mode={mode} />
+      <Front />
     </ThemeProvider>
   );
 };

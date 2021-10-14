@@ -1,18 +1,13 @@
 import Header from "components/Header";
-import { MouseEventHandler } from "react";
+import InputTodo from "components/InputTodo";
 import * as S from "./styles";
 
-const Front = ({
-  mode,
-  toggleMode,
-}: {
-  mode: "light" | "dark";
-  toggleMode: MouseEventHandler<HTMLButtonElement>;
-}) => {
+const Front = () => {
   return (
     <S.Page>
       <S.Center>
-        <Header mode={mode} onClick={toggleMode} />
+        <Header />
+        <InputTodo />
       </S.Center>
     </S.Page>
   );
