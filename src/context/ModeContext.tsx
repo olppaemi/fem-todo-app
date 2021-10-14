@@ -1,25 +1,35 @@
-import {
-  createContext,
-  FC,
-  MouseEventHandler,
-  useCallback,
-  useContext,
-  useState,
-} from "react";
+import useLocalStorage from "hooks/useLocalStorage";
+import { createContext, FC, useCallback, useContext, useState } from "react";
 import { DefaultTheme } from "styled-components";
 import { darkTheme, lightTheme } from "styles/theme";
 
 export type ModeContextProps = {
   theme: DefaultTheme;
   mode: "light" | "dark";
-  toggleMode: MouseEventHandler<HTMLButtonElement>;
+  toggleMode: () => void;
 };
 
 const ModeContext = createContext<ModeContextProps>({} as ModeContextProps);
 
 export const ModeProvider: FC = ({ children }) => {
-  const [theme, setTheme] = useState<DefaultTheme>(lightTheme);
-  const [mode, setMode] = useState<"light" | "dark">("light");
+  const prefersDarkMode =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark").matches;
+
+  let initTheme = prefersDarkMode ? "dark" : "light";
+  const localTheme = localStorage.getItem("theme");
+
+  if (localTheme) {
+    initTheme = localTheme;
+  }
+
+  const [theme, setTheme] = useState<DefaultTheme>(
+    initTheme === "dark" ? darkTheme : lightTheme
+  );
+  const [mode, setMode] = useLocalStorage(
+    "theme",
+    prefersDarkMode ? "dark" : "light"
+  );
 
   const toggleMode = useCallback(() => {
     if (mode === "light") {
@@ -29,7 +39,7 @@ export const ModeProvider: FC = ({ children }) => {
       setMode("light");
       setTheme(lightTheme);
     }
-  }, [mode]);
+  }, [mode, setMode]);
 
   return (
     <ModeContext.Provider value={{ theme, mode, toggleMode }}>
