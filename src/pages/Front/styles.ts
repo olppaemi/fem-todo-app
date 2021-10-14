@@ -9,6 +9,7 @@ export const Page = styled.div`
       ${({ theme }) => `url(${theme.bgDesktop})`},
     ${({ theme }) => theme.background};
   padding-top: ${rem(70)};
+  padding-bottom: ${rem(52)};
 
   @media (max-width: ${media.sm}) {
     background: top / contain no-repeat
@@ -18,6 +19,11 @@ export const Page = styled.div`
 `;
 
 export const Center = styled.div`
-  max-width: ${rem(541)};
+  min-width: ${rem(327)};
+  width: ${rem(540)};
   margin: auto;
+
+  @media (max-width: ${media.md}) {
+    width: ${(327 / 375) * 100}%;
+  }
 `;

@@ -34,6 +34,11 @@ export const reducer = (state: TodoState, action: Action): TodoState => {
             : todo
         ),
       };
+    case "CLEAR_COMPLETED":
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => !todo.completed),
+      };
     default:
       return state;
   }

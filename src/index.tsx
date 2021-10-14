@@ -1,13 +1,16 @@
-import { ModeProvider } from "context/ModeContext";
+import { ModeContextProvider } from "context/ModeContext";
+import { TodoContextProvider } from "context/TodoContext";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ModeProvider>
-      <App />
-    </ModeProvider>
+    <ModeContextProvider>
+      <TodoContextProvider>
+        <App />
+      </TodoContextProvider>
+    </ModeContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

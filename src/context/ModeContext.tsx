@@ -11,7 +11,7 @@ export type ModeContextProps = {
 
 const ModeContext = createContext<ModeContextProps>({} as ModeContextProps);
 
-export const ModeProvider: FC = ({ children }) => {
+export const ModeContextProvider: FC = ({ children }) => {
   const prefersDarkMode =
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark").matches;

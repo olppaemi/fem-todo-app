@@ -25,4 +25,13 @@ export const GlobalStyle = createGlobalStyle`
   input {
     font-family: inherit;
   }
+
+  button {
+    font-family: inherit;
+    border: none;
+    appearance: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+  }
 `;

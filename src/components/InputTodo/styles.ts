@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { rem } from "styles/utils";
 
-export const Container = styled.div`
+export const Form = styled.form`
   width: 100%;
   height: ${rem(64)};
+  display: flex;
   background-color: ${({ theme }) => theme.listBg};
   border-radius: ${rem(5)};
-
-  display: flex;
+  margin-bottom: ${rem(24)};
 `;
 
 export const Wrapper = styled.div`
@@ -27,7 +27,7 @@ export const Circle = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 100%;
+  width: ${rem(540 - 72)};
   height: 100%;
   border: none;
   outline: none;
@@ -37,4 +37,5 @@ export const Input = styled.input`
   background-color: ${({ theme }) => theme.listBg};
 
   font-size: ${rem(18)};
+  color: ${({ theme }) => theme.textActive};
 `;

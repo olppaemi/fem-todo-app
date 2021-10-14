@@ -10,19 +10,28 @@ export type Action =
   | {
       type: "UPDATE_TODO";
       payload: { id: string; completed: boolean };
+    }
+  | {
+      type: "CLEAR_COMPLETED";
     };
 
-export const addTodo = (text: string): Action => ({
+const add = (text: string): Action => ({
   type: "ADD_TODO",
   payload: { text },
 });
 
-export const removeTodo = (id: string): Action => ({
+const remove = (id: string): Action => ({
   type: "REMOVE_TODO",
   payload: { id },
 });
 
-export const updateTodo = (id: string, completed: boolean): Action => ({
+const update = (id: string, completed: boolean): Action => ({
   type: "UPDATE_TODO",
   payload: { id, completed },
 });
+
+const clear = (): Action => ({
+  type: "CLEAR_COMPLETED",
+});
+
+export const todoActions = { add, remove, update, clear };
