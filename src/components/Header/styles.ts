@@ -6,6 +6,8 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: ${rem(40)};
 `;
 
 export const Title = styled.h1`
