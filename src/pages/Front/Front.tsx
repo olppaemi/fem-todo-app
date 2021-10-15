@@ -9,8 +9,10 @@ const Front = () => {
     <S.Page>
       <S.Center>
         <Header />
-        <InputTodo />
-        <TodosPanel />
+        <main>
+          <InputTodo />
+          <TodosPanel />
+        </main>
         <footer>
           <S.Text>Drag and drop to reorder list</S.Text>
         </footer>
