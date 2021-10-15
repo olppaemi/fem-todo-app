@@ -3,7 +3,7 @@ import { rem } from "styles/utils";
 import { TodoItem } from "./TodoItem/styles";
 import { TodosControl } from "./TodosControl/styles";
 
-export const TodosPanel = styled.div`
+export const TodosPanel = styled.main`
   width: 100%;
   border-radius: ${rem(5)};
 

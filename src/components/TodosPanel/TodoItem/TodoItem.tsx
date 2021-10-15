@@ -47,13 +47,13 @@ const TodoItem = ({
 
   return (
     <S.TodoItem ref={ref}>
-      <S.CheckButton type="button">
+      <S.CircleWrapper>
         <S.Circle $completed={completed} onClick={checkTodo}>
-          <S.CircleBackground $completed={completed}>
+          <S.CircleButton $completed={completed}>
             {completed && <CheckIcon />}
-          </S.CircleBackground>
+          </S.CircleButton>
         </S.Circle>
-      </S.CheckButton>
+      </S.CircleWrapper>
       <S.Text $completed={completed} onClick={checkTodo}>
         {text}
       </S.Text>

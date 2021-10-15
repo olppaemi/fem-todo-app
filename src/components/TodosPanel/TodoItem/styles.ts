@@ -17,7 +17,7 @@ export const TodoItem = styled.div`
   }
 `;
 
-export const CheckButton = styled.button`
+export const CircleWrapper = styled.div`
   width: ${(72 / 560) * 100}%;
   height: 100%;
   display: flex;
@@ -46,7 +46,7 @@ export const Circle = styled.div<{ $completed: boolean }>`
   }
 `;
 
-export const CircleBackground = styled.div<{ $completed: boolean }>`
+export const CircleButton = styled.button<{ $completed: boolean }>`
   width: ${rem(22)};
   height: ${rem(22)};
   border-radius: 50%;
