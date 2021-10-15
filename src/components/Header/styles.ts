@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styles/media";
 import { rem } from "styles/utils";
 
 export const Header = styled.header`
@@ -6,7 +7,6 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin-bottom: ${rem(40)};
 `;
 
@@ -14,6 +14,11 @@ export const Title = styled.h1`
   font-size: ${rem(40)};
   letter-spacing: ${rem(15)};
   color: white;
+
+  @media (max-width: ${media.sm}) {
+    font-size: ${rem(24)};
+    letter-spacing: ${rem(12)};
+  }
 `;
 
 export const ToggleButton = styled.button`

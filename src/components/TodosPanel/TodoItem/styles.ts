@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styles/media";
 import { rem } from "styles/utils";
 
 export const TodoItem = styled.div`
@@ -10,6 +11,10 @@ export const TodoItem = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.listBg};
   border-bottom: 1px solid ${({ theme }) => theme.border};
+
+  @media (max-width: ${media.sm}) {
+    height: ${rem(48)};
+  }
 `;
 
 export const CheckButton = styled.button`
@@ -34,6 +39,11 @@ export const Circle = styled.div<{ $completed: boolean }>`
   &:hover {
     background: ${({ theme }) => theme.checkHover};
   }
+
+  @media (max-width: ${media.sm}) {
+    width: ${rem(20)};
+    height: ${rem(20)};
+  }
 `;
 
 export const CircleBackground = styled.div<{ $completed: boolean }>`
@@ -44,14 +54,26 @@ export const CircleBackground = styled.div<{ $completed: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${media.sm}) {
+    width: ${rem(18)};
+    height: ${rem(18)};
+  }
 `;
 
 export const Text = styled.p<{ $completed: boolean }>`
   width: ${(488 / 560) * 100}%;
   text-decoration: ${({ $completed }) => $completed && "line-through"};
+  font-size: ${rem(18)};
+  letter-spacing: -${rem(0.25)};
   color: ${({ theme, $completed }) =>
     $completed ? theme.textCompleted : theme.textActive};
   cursor: pointer;
+
+  @media (max-width: ${media.sm}) {
+    font-size: ${rem(12)};
+    letter-spacing: -${rem(0.17)};
+  }
 `;
 
 export const RemoveButton = styled.button``;

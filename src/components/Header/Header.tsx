@@ -10,7 +10,7 @@ const Header = () => {
     <S.Header>
       <S.Title>TODO</S.Title>
       <S.ToggleButton onClick={toggleMode}>
-        {mode === "light" ? <SunIcon /> : <MoonIcon />}
+        {mode === "dark" ? <SunIcon /> : <MoonIcon />}
       </S.ToggleButton>
     </S.Header>
   );

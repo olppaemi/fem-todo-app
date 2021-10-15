@@ -15,7 +15,7 @@ const TodosControl = ({
 
   return (
     <S.TodosControl>
-      {todosLeft} items left
+      <span>{todosLeft} items left</span>
       <S.Controls>
         <S.Button onClick={() => setFilter("")} $selected={filter === ""}>
           All

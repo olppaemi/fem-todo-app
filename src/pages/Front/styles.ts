@@ -30,10 +30,12 @@ export const Center = styled.div`
 
 export const Text = styled.p`
   text-align: center;
+  font-size: ${rem(14)};
+  letter-spacing: -${rem(0.19)};
   color: ${({ theme }) => theme.textState};
   margin-top: ${rem(49)};
 
-  @media (max-width: ${media.md}) {
-    margin-top: ${rem(40)};
+  @media (max-width: ${media.sm}) {
+    margin-top: ${rem(104)};
   }
 `;
