@@ -11,6 +11,7 @@ const Front = () => {
         <Header />
         <InputTodo />
         <TodosPanel />
+        <S.Text>Drag and drop to reorder list</S.Text>
       </S.Center>
     </S.Page>
   );

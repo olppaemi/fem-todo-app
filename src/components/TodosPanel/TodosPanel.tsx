@@ -1,4 +1,4 @@
-import { useTodoContext } from "context/TodoContext";
+import { useTodoContext } from "contexts/TodoContext";
 import TodoItem from "./TodoItem";
 import * as S from "./styles";
 import TodosControl from "./TodosControl";

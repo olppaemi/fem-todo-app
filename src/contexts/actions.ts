@@ -1,3 +1,5 @@
+import { DragItem } from "types/DragItem";
+
 export type Action =
   | {
       type: "ADD_TODO";
@@ -13,6 +15,14 @@ export type Action =
     }
   | {
       type: "CLEAR_COMPLETED";
+    }
+  | {
+      type: "MOVE_TODO";
+      payload: { draggedId: string; hoverId: string };
+    }
+  | {
+      type: "SET_DRAGGED_ITEM";
+      payload: { draggedItem: DragItem | null };
     };
 
 const add = (text: string): Action => ({
@@ -34,4 +44,14 @@ const clear = (): Action => ({
   type: "CLEAR_COMPLETED",
 });
 
-export const todoActions = { add, remove, update, clear };
+const move = (draggedId: string, hoverId: string): Action => ({
+  type: "MOVE_TODO",
+  payload: { draggedId, hoverId },
+});
+
+const setDraggedItem = (dragItem: DragItem | null): Action => ({
+  type: "SET_DRAGGED_ITEM",
+  payload: { draggedItem: dragItem },
+});
+
+export const todoActions = { add, remove, update, clear, move, setDraggedItem };

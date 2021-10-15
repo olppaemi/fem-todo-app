@@ -1,9 +1,11 @@
 import { createContext, Dispatch, FC, useContext, useReducer } from "react";
+import { DragItem } from "types/DragItem";
 import TodoType from "types/todo";
 import { Action } from "./actions";
-import { reducer, TodoState } from "./TodoReducer";
+import { reducer, TodosState } from "./TodoReducer";
 
-const todoData: TodoState = {
+const todoData: TodosState = {
+  draggedItem: null,
   todos: [
     {
       id: "1",
@@ -39,6 +41,7 @@ const todoData: TodoState = {
 };
 
 export type TodoContextProps = {
+  draggedItem: DragItem | null;
   todos: TodoType[];
   dispatch: Dispatch<Action>;
 };
@@ -47,10 +50,10 @@ const TodoContext = createContext<TodoContextProps>({} as TodoContextProps);
 
 export const TodoContextProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, todoData);
-  const { todos } = state;
+  const { todos, draggedItem } = state;
 
   return (
-    <TodoContext.Provider value={{ todos, dispatch }}>
+    <TodoContext.Provider value={{ todos, draggedItem, dispatch }}>
       {children}
     </TodoContext.Provider>
   );

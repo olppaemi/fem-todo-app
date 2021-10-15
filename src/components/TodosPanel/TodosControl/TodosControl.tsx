@@ -1,5 +1,5 @@
-import { todoActions } from "context/actions";
-import { useTodoContext } from "context/TodoContext";
+import { todoActions } from "contexts/actions";
+import { useTodoContext } from "contexts/TodoContext";
 import * as S from "./styles";
 
 const TodosControl = ({

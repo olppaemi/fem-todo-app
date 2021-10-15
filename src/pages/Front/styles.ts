@@ -27,3 +27,13 @@ export const Center = styled.div`
     width: ${(327 / 375) * 100}%;
   }
 `;
+
+export const Text = styled.p`
+  text-align: center;
+  color: ${({ theme }) => theme.textState};
+  margin-top: ${rem(49)};
+
+  @media (max-width: ${media.md}) {
+    margin-top: ${rem(40)};
+  }
+`;

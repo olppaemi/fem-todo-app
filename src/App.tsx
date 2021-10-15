@@ -1,4 +1,4 @@
-import { useModeContext } from "context/ModeContext";
+import { useModeContext } from "contexts/ModeContext";
 import Front from "pages/Front";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "styles/globalStyles";

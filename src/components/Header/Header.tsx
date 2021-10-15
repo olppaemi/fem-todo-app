@@ -1,4 +1,4 @@
-import { useModeContext } from "context/ModeContext";
+import { useModeContext } from "contexts/ModeContext";
 import MoonIcon from "icons/MoonIcon";
 import SunIcon from "icons/SunIcon";
 import * as S from "./styles";
